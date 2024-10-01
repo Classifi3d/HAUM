@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-around top-container">
+  <app-spinner
+    [value]="this.currentDataValue"
+    [sensorType]="this.sensorType"
+  ></app-spinner>
+
+  <div>
+    <div class="date-range-container">
+      <mat-checkbox [color]="'primary'" (change)="toggleDateRange()">
+        <div class="jetbrains-mono">Enable custom date range</div>
+      </mat-checkbox>
+      <mat-form-field>
+        <mat-label class="jetbrains-mono">Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input
+            matStartDate
+            [disabled]="isDisabled"
+            formControlName="start"
+            placeholder="Start date"
+          />
+          <input
+            matEndDate
+            [disabled]="isDisabled"
+            formControlName="end"
+            placeholder="End date"
+          />
+        </mat-date-range-input>
+        <mat-hint class="jetbrains-mono">MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        [disabled]="isDisabled"
+        (click)="customDateSearch()"
+        class="jetbrains-mono date-range-button"
+        color="primary"
+        style="width: 70%"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="graph-container">
+  <div class="d-flex flex-column align-items-center">
+    <canvasjs-chart
+      [styles]="{ width: '750px', height: '350px' }"
+      (chartInstance)="getChartInstance($event)"
+    ></canvasjs-chart>
+  </div>
+</div>

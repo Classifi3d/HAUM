@@ -1,0 +1,81 @@
+.container-settings-transparent-menu-top {
+  height: 90px;
+  width: 450px;
+}
+
+.container-settings-transparent-menu-bottom {
+  min-height: calc(100vh - 650px);
+  width: 450px;
+}
+
+.container-settings-title-menu {
+  height: 50px;
+  width: 450px;
+}
+
+.container-settings-normal-menu {
+  height: 510px;
+  width: 450px;
+}
+
+.container-settings-form {
+  height: 90%;
+  //   margin-left: 5%;
+  //   margin-right: 5%;
+}
+
+.container-menu-normal {
+  height: calc(100vh - 90px);
+  width: 450px;
+}
+
+.device-card {
+  & .device-card-header {
+    height: 10px;
+    // border-top-right-radius: 25px;
+    // border-top-left-radius: 25px;
+  }
+  width: 405px;
+  height: 150px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 25px;
+  transition: height 0.2s;
+  &:hover {
+    height: 170px;
+    & .device-card-header {
+      background-color: #96e800;
+      // border-top-right-radius: 25px;
+      // border-top-left-radius: 25px;
+    }
+  }
+}
+
+.device-icon {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+  font-size: 80px;
+  font-weight: 200;
+}
+
+.form-menu-button {
+  min-width: 405px;
+}
+
+.setting-element-width {
+  width: 90%;
+}
+
+.setting-element-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.settings-element-button {
+  margin-top: 12px;
+}
+
+.mat-mdc-raised-button.mat-primary.delete-button-color {
+  background-color: #d92e2e !important;
+}

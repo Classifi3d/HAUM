@@ -1,0 +1,60 @@
+.circle-dark-blue {
+  --mdc-circular-progress-active-indicator-color: #3364af !important;
+}
+
+.circle-light-blue {
+  --mdc-circular-progress-active-indicator-color: #49bfdd !important;
+}
+
+.circle-green {
+  --mdc-circular-progress-active-indicator-color: #96e800 !important;
+}
+
+.circle-yellow {
+  --mdc-circular-progress-active-indicator-color: #fbd411 !important;
+}
+
+.circle-orange {
+  --mdc-circular-progress-active-indicator-color: #fa6a00 !important;
+}
+
+.circle-red {
+  --mdc-circular-progress-active-indicator-color: #f92209 !important;
+}
+
+.circle-background {
+  --mdc-circular-progress-active-indicator-color: rgb(
+    211,
+    211,
+    211,
+    0.75
+  ) !important;
+}
+
+.spinner1 {
+  position: absolute;
+  z-index: 300;
+}
+
+.spinner2 {
+  position: absolute;
+  z-index: 200;
+}
+
+.spinner-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.reading-text {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+
+  font-family: "JetBrains Mono", monospace;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  color: gray;
+}

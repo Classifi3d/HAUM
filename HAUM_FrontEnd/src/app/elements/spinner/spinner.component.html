@@ -1,0 +1,21 @@
+<div class="spinner-container">
+  <mat-progress-spinner
+    class="spinner1"
+    [ngClass]="this.spinnerColor"
+    [diameter]="200"
+    [strokeWidth]="15"
+    [mode]="'determinate'"
+    [value]="spinnerProgress"
+  >
+  </mat-progress-spinner>
+  <mat-progress-spinner
+    class="spinner2"
+    [ngClass]="'circle-background'"
+    [diameter]="200"
+    [strokeWidth]="15"
+    [mode]="'determinate'"
+    [value]="100"
+  >
+  </mat-progress-spinner>
+  <div class="reading-text">{{ value }}{{ valueType }}</div>
+</div>

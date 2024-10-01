@@ -1,0 +1,48 @@
+.background {
+  background-image: linear-gradient(
+    to right bottom,
+    #61bbff,
+    #2ca6fd,
+    #0090ff,
+    #0084ff,
+    #0076fe,
+    #1266eb,
+    #1957d9,
+    #1d48c6,
+    #1b36a2,
+    #142480,
+    #070f4b,
+    #010017
+  );
+  background-repeat: repeat;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  & .dots {
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+
+    background-size: 10px 10px, 10px 10px;
+    background-image: linear-gradient(to bottom, #d1d1d1 50%, transparent 50%),
+      linear-gradient(to right, transparent 50%, #d1d1d1 50%);
+    background-repeat: repeat;
+    animation: fadeInOut 3.5s infinite;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.04;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.04;
+  }
+}

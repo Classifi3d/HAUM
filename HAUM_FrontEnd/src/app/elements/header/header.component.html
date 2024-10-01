@@ -1,0 +1,36 @@
+<div class="container-header d-sticky fixed-top bg-light">
+  <div class="d-flex justify-content-between no-wrap">
+    <a
+      class="user-select-none link-underline link-underline-opacity-0 text-dark"
+      href="/home"
+    >
+      <div class="container-header d-flex logo-small">
+        <h1 class="comfortaa font-green">h</h1>
+        <h1 class="comfortaa">AUM</h1>
+      </div>
+    </a>
+    <div class="options-menu">
+      <button mat-button [matMenuTriggerFor]="menu" style="height: 40px">
+        <mat-icon class="example-tab-icon">account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <div class="jetbrains-mono user-information">
+          {{ this.user?.username }}
+        </div>
+        <button mat-menu-item>
+          <a
+            class="d-flex align-items-start link-underline link-underline-opacity-0 text-dark"
+            href="/login"
+          >
+            <mat-icon class="example-tab-icon">logout</mat-icon>
+            <a
+              class="jetbrains-mono user-select-none link-underline link-underline-opacity-0 text-dark"
+            >
+              Logout
+            </a>
+          </a>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</div>

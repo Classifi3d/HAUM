@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="d-flex flex-column align-items-center position-relative">
+  <div class="d-flex flex-wrap-reverse">
+    <div>
+      <div
+        class="container-device-transparent-menu-top bg-black opacity-50"
+      ></div>
+      <div class="container-device-menu-normal bg-transparent-light">
+        <mat-divider></mat-divider>
+        <mat-card class="card-width">
+          <mat-card-header>
+            <mat-card-title>
+              <div class="d-flex justify-content-start">
+                <div class="jetbrains-mono-title">Temperature</div>
+                <mat-icon class="card-title-icon">thermostat</mat-icon>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <app-sensor-data [sensorType]="0"></app-sensor-data>
+        </mat-card>
+        <mat-card class="card-width">
+          <mat-card-header>
+            <mat-card-title>
+              <div class="d-flex justify-content-start">
+                <div class="jetbrains-mono-title">Humidity</div>
+                <mat-icon class="card-title-icon">water_drop</mat-icon>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <app-sensor-data [sensorType]="1"></app-sensor-data>
+        </mat-card>
+        <mat-card class="card-width">
+          <mat-card-header>
+            <mat-card-title>
+              <div class="d-flex justify-content-start">
+                <div class="jetbrains-mono-title">Pressure</div>
+                <mat-icon class="card-title-icon">compress</mat-icon>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <app-sensor-data [sensorType]="2"></app-sensor-data>
+        </mat-card>
+        <mat-card class="card-width">
+          <mat-card-header>
+            <mat-card-title>
+              <div class="d-flex justify-content-start">
+                <div class="jetbrains-mono-title">Luminance</div>
+                <mat-icon class="card-title-icon">light_mode</mat-icon>
+              </div>
+            </mat-card-title>
+          </mat-card-header>
+          <app-sensor-data [sensorType]="3"></app-sensor-data>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

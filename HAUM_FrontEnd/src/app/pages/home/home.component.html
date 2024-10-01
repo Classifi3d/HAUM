@@ -1,0 +1,181 @@
+<app-header></app-header>
+<div class="d-flex flex-column align-items-center position-relative">
+  <div class="d-flex flex-wrap-reverse">
+    <!-- MENU -->
+    <div>
+      <div
+        class="container-settings-transparent-menu-top bg-black opacity-50"
+      ></div>
+      <div
+        class="d-flex flex-column align-items-center container-menu-normal bg-transparent-light"
+      >
+        <div *ngFor="let device of deviceList">
+          <mat-card
+            class="device-card shadow-lg"
+            (click)="selectDevice(device)"
+          >
+            <div
+              class="d-flex flex-column align-items-center device-card-header jetbrains-mono bg-transparent-light"
+            ></div>
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title
+                  ><div class="jetbrains-mono-title">
+                    {{ device.name }}
+                  </div>
+                </mat-card-title>
+                <mat-card-subtitle
+                  ><div class="jetbrains-mono-heavy">
+                    {{ device.ipAddress }}
+                  </div>
+                </mat-card-subtitle>
+                <mat-card-subtitle
+                  ><div class="jetbrains-mono-heavy">
+                    {{ device.port }}
+                  </div>
+                </mat-card-subtitle>
+                <mat-icon class="device-icon">dns</mat-icon>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content
+              ><div class="jetbrains-mono-heavy">
+                {{ device.description }}
+              </div>
+            </mat-card-content>
+            <br />
+          </mat-card>
+        </div>
+        <mat-card class="device-card" (click)="addNewDevice()">
+          <div
+            class="d-flex flex-column align-items-center device-card-header jetbrains-mono bg-transparent-light"
+            style="width: 100%"
+          ></div>
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title
+                ><div class="text-center jetbrains-mono-title">
+                  Add a new device
+                </div>
+              </mat-card-title>
+              <mat-icon class="device-icon">add_circle</mat-icon>
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content> &nbsp;</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <!-- SETTINGS -->
+    <div>
+      <div
+        class="container-settings-transparent-menu-top bg-black opacity-50"
+      ></div>
+      <div
+        class="d-flex flew-column align-items-center justify-content-center container-settings-title-menu bg-green"
+      >
+        <div class="jetbrains-mono-title">Device Settings</div>
+      </div>
+      <div class="container-settings-normal-menu bg-light">
+        <!-- Add Device -->
+        <div class="d-flex flex-column align-items-center"></div>
+
+        <form
+          class="d-flex flex-column align-items-center justify-content-center container-settings-form"
+          (ngSubmit)="saveDevice()"
+          [formGroup]="deviceForm"
+        >
+          <mat-form-field class="setting-element-width">
+            <mat-label class="jetbrains-mono">Device Name</mat-label>
+            <input
+              matInput
+              class="jetbrains-mono font-red"
+              formControlName="name"
+            />
+          </mat-form-field>
+          <mat-form-field class="setting-element-width">
+            <mat-label class="jetbrains-mono">Ip Address</mat-label>
+            <input
+              matInput
+              class="jetbrains-mono font-red"
+              formControlName="ipAddress"
+            />
+          </mat-form-field>
+          <mat-form-field class="setting-element-width">
+            <mat-label class="jetbrains-mono">Port</mat-label>
+            <input
+              matInput
+              class="jetbrains-mono font-red"
+              formControlName="port"
+            />
+          </mat-form-field>
+          <mat-form-field class="setting-element-width">
+            <mat-label class="jetbrains-mono">Description</mat-label>
+            <input
+              matInput
+              class="jetbrains-mono font-red"
+              formControlName="description"
+            />
+          </mat-form-field>
+          <button
+            *ngIf="!isDisabled"
+            class="setting-element-width jetbrains-mono settings-element-button"
+            mat-raised-button
+            color="primary"
+          >
+            Save
+          </button>
+          <div class="d-flex flex-column setting-element-width">
+            <div
+              class="d-flex justify-content-center align-items-center settings-element-button"
+            >
+              <button
+                *ngIf="
+                  isDisabled &&
+                  deviceIsSelected &&
+                  !isLastDeleted &&
+                  !isInEditMode
+                "
+                class="setting-element-width jetbrains-mono"
+                mat-raised-button
+                (click)="accessSelectedDevice()"
+                type="button"
+                color="primary"
+              >
+                Access Device
+              </button>
+              <button
+                *ngIf="
+                  isDisabled &&
+                  deviceIsSelected &&
+                  !isLastDeleted &&
+                  isInEditMode
+                "
+                class="setting-element-width jetbrains-mono delete-button-color settings-upsert-button"
+                mat-raised-button
+                (click)="deleteDevice()"
+                type="button"
+                color="primary"
+              >
+                Delete
+              </button>
+              <button
+                *ngIf="isDisabled && deviceIsSelected && !isLastDeleted"
+                mat-button
+                matTooltip="Settings"
+                type="button"
+                class="setting-element-icon"
+                (click)="toggleEditMode()"
+              >
+                <mat-icon class="" matTooltip="Info about the action"
+                  >settings</mat-icon
+                >
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div
+        class="container-settings-transparent-menu-bottom bg-black opacity-50"
+      ></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.top-container {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.date-range-container {
+  width: 300px;
+}
+
+.date-range-button {
+  width: 90% !important;
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+.graph-container {
+  height: 400px;
+}
+
+.mat-form-field-disabled {
+  .mat-mdc-form-field-subscript-wrapper {
+    opacity: 0.5;
+  }
+}

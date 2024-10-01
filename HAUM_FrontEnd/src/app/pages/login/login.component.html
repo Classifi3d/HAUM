@@ -1,0 +1,72 @@
+<div class="d-flex flex-column align-items-center position-relative">
+  <div
+    style="width: 450px"
+    class="d-flex flex-column bg-light justify-content-center align-items-center vh-100 shadow-lg"
+  >
+    <div class="mb-header">
+      <app-logo></app-logo>
+    </div>
+    <form
+      class="d-flex flex-column align-items-center"
+      style="width: 100%"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your email</mat-label>
+        <input
+          class="br-30"
+          matInput
+          placeholder="user@mail.com"
+          formControlName="email"
+          required
+        />
+        @if (!loginForm.get('email')?.valid) {
+        <mat-error class="jetbrains-mono font-red">
+          {{ getEmailErrorMessage() }}
+        </mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your password</mat-label>
+        <input
+          class="jetbrains-mono"
+          matInput
+          placeholder="password"
+          formControlName="password"
+          required
+          [type]="hide ? 'password' : 'text'"
+        />
+        @if (!loginForm.get('password')?.valid) {
+        <mat-error class="jetbrains-mono font-red">
+          {{ getPasswordErrorMessage() }}
+        </mat-error>
+        }
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <button
+      mat-raised-button
+      class="jetbrains-mono mh-button"
+      color="primary"
+      style="width: 80%"
+      (click)="onSubmit()"
+    >
+      Log In
+    </button>
+    <p class="jetbrains-mono">Don't have an account?</p>
+    <a href="/sign-up" class="jetbrains-mono-heavy font-green user-select-none"
+      >Register Now</a
+    >
+  </div>
+</div>

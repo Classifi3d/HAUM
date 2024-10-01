@@ -1,0 +1,102 @@
+<div class="d-flex flex-column align-items-center position-relative">
+  <div
+    style="width: 450px"
+    class="d-flex flex-column bg-light justify-content-center align-items-center vh-100 shadow-lg"
+  >
+    <div class="d-flex flex-column align-items-center mb-header-small">
+      <div class="d-flex no-wrap">
+        <h1 class="comfortaa">Sign</h1>
+        <h1 class="comfortaa font-green">Up</h1>
+      </div>
+      <p class="jetbrains-mono-subtitle">Create your account</p>
+    </div>
+    <form
+      class="d-flex flex-column align-items-center"
+      style="width: 100%"
+      [formGroup]="signUpForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your username</mat-label>
+        <input
+          class="br-30"
+          matInput
+          placeholder="user123"
+          formControlName="username"
+          required
+        />
+        @if (!signUpForm.get('username')?.valid) {
+        <mat-error class="jetbrains-mono font-red">{{
+          getUsernameErrorMessage()
+        }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your email</mat-label>
+        <input
+          class="br-30"
+          matInput
+          placeholder="user@mail.com"
+          formControlName="email"
+          required
+        />
+        @if (!signUpForm.get('email')?.valid) {
+        <mat-error class="jetbrains-mono font-red">{{
+          getEmailErrorMessage()
+        }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          placeholder="password"
+          required
+          [type]="hide ? 'password' : 'text'"
+          class="jetbrains-mono"
+        />
+
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field style="width: 80%">
+        <mat-label class="jetbrains-mono">Enter your password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          placeholder="password"
+          required
+          [type]="hide ? 'password' : 'text'"
+          class="jetbrains-mono"
+        />
+        @if (!signUpForm.get('password')?.valid) {
+        <mat-error class="jetbrains-mono font-red">{{
+          getPasswordErrorMessage()
+        }}</mat-error>
+        }
+      </mat-form-field>
+    </form>
+
+    <button
+      mat-raised-button
+      class="jetbrains-mono mh-button"
+      color="primary"
+      style="width: 80%"
+      (click)="onSubmit()"
+    >
+      Sign Up
+    </button>
+    <p class="jetbrains-mono">Already have an account?</p>
+    <a href="/login" class="jetbrains-mono-heavy font-green user-select-none"
+      >Login</a
+    >
+  </div>
+</div>
